@@ -20,8 +20,7 @@ class OSCamera: CDVPlugin {
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
         self.callbackId = command.callbackId
-    logger.critical("Can't fetch iCloud account status.")
-        fatalError()
+self.logger.notice("Product list fetching is finished")
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
               let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
