@@ -20,7 +20,8 @@ class OSCamera: CDVPlugin {
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
         self.callbackId = command.callbackId
-
+    let defaultLog = Logger()
+   defaultLog.log("This is a default message.")
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
               let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
@@ -31,7 +32,7 @@ class OSCamera: CDVPlugin {
             self.chooseSinglePicture(allowEdit: parameters.allowEdit)
             return
         }
-    
+
         let options = OSCAMRPictureOptions(from: parameters)
         
         self.commandDelegate.run { [weak self] in
