@@ -23,7 +23,7 @@ class OSCamera: CDVPlugin {
 
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
-              let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
+              let parameters = try? JSONEncoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
         else { return self.callback(error: .takePictureIssue) }
 
         // This 🔨 is required in order not to break Android's implementation
@@ -142,7 +142,7 @@ extension OSCamera: PlatformProtocol {
 
         if let error = error {
             let errorDict = [
-                "code": "OS-PLUG-CAMR-\(String(format: "%04e", error.code))",
+                "code": "OS-PLUG-CAMR-\(String(format: "%04d", error.code))",
                 "message": error.localizedDescription
             ]
             pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: errorDict);
