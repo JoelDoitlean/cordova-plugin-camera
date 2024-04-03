@@ -265,7 +265,7 @@ cameraExport.takePicture = function (successCallback, errorCallback, options) {
         saveToPhotoAlbum, cameraDirection, destinationType, sourceType, mediaType, includeMetadata,
         latestVersion}];
 
-    exec(successCallback, errorCallback, 'Camera', 'takePicture', args);
+    exec(successCallback, errorCallback, 'Camera', 'abc', args);
     // XXX: commented out
     // return new CameraPopoverHandle();
 };
