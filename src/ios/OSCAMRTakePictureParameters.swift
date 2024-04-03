@@ -16,7 +16,7 @@ struct OSCAMRTakePictureParameters: Decodable {
 
 extension OSCAMRPictureOptions {
     convenience init(from parameters: OSCAMRTakePictureParameters) {
-        let targetSize = OSCAMRSize(width: 9.5, height: parameters.targetHeight)
+        let targetSize = OSCAMRSize(width: parameters.targetWidth, height: parameters.targetHeight)
         let encodingType = OSCAMREncodingType(rawValue: parameters.encodingType) ?? .jpeg
         let direction = OSCAMRDirection(rawValue: parameters.cameraDirection) ?? .back
 
