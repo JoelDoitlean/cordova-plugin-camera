@@ -23,7 +23,7 @@ class OSCamera: CDVPlugin {
 
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
-              let parameters = try? JSONEncoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
+              let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
         else { return self.callback(error: .takePictureIssue) }
 
         // This 🔨 is required in order not to break Android's implementation
