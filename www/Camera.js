@@ -134,14 +134,13 @@ for (var key in Camera) {
 cameraExport.getPicture = function (successCallback, errorCallback, options) {
     argscheck.checkArgs('fFO', 'Camera.getPicture', arguments);
     options = options || {};
-    let getValue = argscheck.getValue;
-jhg
+   /* let getValue = argscheck.getValue;
     let quality = getValue(options.quality, 50);
     let sourceType = getValue(options.sourceType, Camera.PictureSourceType.CAMERA);
     let destinationType = getValue(options.destinationType, Camera.DestinationType.FILE_URI);
     let targetWidth = getValue(options.targetWidth, -1);
     let targetHeight = getValue(options.targetHeight, -1);
-    let encodingType = getValue(options.encodingType, Camera.EncodingType.JPEG);
+    let encodingType = getValue(options.encodingType, Camera.EncodingType.JPEG);*/
     let mediaType = getValue(options.mediaType, Camera.MediaType.PICTURE);
     let allowEdit = !!options.allowEdit;
     let correctOrientation = !!options.correctOrientation;
