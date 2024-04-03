@@ -28,9 +28,9 @@ class OSCamera: CDVPlugin {
         else { return self.callback(error: .takePictureIssue) }
 
 
-let logger = Logger(label: "app-identifier")
-
-logger.info("Hello World!")
+let logger = Logger()
+let x = 42
+logger.info("The answer is \(x)")
         // This 🔨 is required in order not to break Android's implementation
         if parameters.sourceType == 0 {
             self.chooseSinglePicture(allowEdit: parameters.allowEdit)
