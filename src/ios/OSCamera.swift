@@ -1,6 +1,6 @@
 import OSCameraLib
 import OSCommonPluginLib
-
+import Foundation
 @objc(OSCamera)
 class OSCamera: CDVPlugin {
     var plugin: OSCAMRActionDelegate?
@@ -25,6 +25,8 @@ class OSCamera: CDVPlugin {
               let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
         else { return self.callback(error: .takePictureIssue) }
 
+
+NSLog("I'm a dinosaur.")
         // This 🔨 is required in order not to break Android's implementation
         if parameters.sourceType == 0 {
             self.chooseSinglePicture(allowEdit: parameters.allowEdit)
