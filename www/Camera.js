@@ -135,7 +135,7 @@ cameraExport.getPicture = function (successCallback, errorCallback, options) {
     argscheck.checkArgs('fFO', 'Camera.getPicture', arguments);
     options = options || {};
     let getValue = argscheck.getValue;
-
+jhg
     let quality = getValue(options.quality, 50);
     let sourceType = getValue(options.sourceType, Camera.PictureSourceType.CAMERA);
     let destinationType = getValue(options.destinationType, Camera.DestinationType.FILE_URI);
