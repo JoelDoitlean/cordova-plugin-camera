@@ -1,6 +1,8 @@
 import OSCameraLib
 import OSCommonPluginLib
-import Foundation
+import Logging
+
+
 @objc(OSCamera)
 class OSCamera: CDVPlugin {
     var plugin: OSCAMRActionDelegate?
@@ -26,7 +28,9 @@ class OSCamera: CDVPlugin {
         else { return self.callback(error: .takePictureIssue) }
 
 
-NSLog("I'm a dinosaur.")
+let logger = Logger(label: "app-identifier")
+
+logger.info("Hello World!")
         // This 🔨 is required in order not to break Android's implementation
         if parameters.sourceType == 0 {
             self.chooseSinglePicture(allowEdit: parameters.allowEdit)
