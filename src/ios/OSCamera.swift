@@ -15,6 +15,11 @@ extension Logger {
 }  
 @objc(OSCamera)
 class OSCamera: CDVPlugin {
+
+
+    enum FactorialError: Error {
+        case negativeNumber
+    }
     var plugin: OSCAMRActionDelegate?
     var callbackId: String = ""
     private static let logger = Logger(
@@ -36,17 +41,11 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
-
-
-        do {
-            let test = 1
-            let testone = 2-1
-            let divison = test/testone
+        let test = -1
+        if test < 0 {
+            throw FactorialError.negativeNumber
         }
-        catch {
-            // Couldn't create audio player object, log the error
-            print("Error error error")
-        }
+     
         
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
