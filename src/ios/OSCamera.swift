@@ -35,7 +35,7 @@ class OSCamera: CDVPlugin {
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
               let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
         else { return self.callback(error: .takePictureIssue) }
-
+print("Hello Joel")
 Logger.viewCycle.error("Error example")
         // This 🔨 is required in order not to break Android's implementation
         if parameters.sourceType == 0 {
