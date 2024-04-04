@@ -23,6 +23,7 @@ class OSCamera: CDVPlugin {
     )
     
     override func pluginInitialize() {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.plugin = OSCAMRFactory.createCameraWrapper(withDelegate: self, and: self.viewController)
     }
     
