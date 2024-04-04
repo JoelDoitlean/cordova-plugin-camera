@@ -1,6 +1,7 @@
 import OSCameraLib
 import OSCommonPluginLib
 import OSLog
+import os.log
 
 extension Logger {
     /// Using your bundle identifier is a great way to ensure a unique identifier.
@@ -34,7 +35,7 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
-        print( "tagReaderSession:didInvalidateWithError - \(error)" )
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
