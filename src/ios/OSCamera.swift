@@ -16,6 +16,10 @@ extension Logger {
 class OSCamera: CDVPlugin {
     var plugin: OSCAMRActionDelegate?
     var callbackId: String = ""
+    private static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: OSCamera.self)
+    )
     
     override func pluginInitialize() {
         self.plugin = OSCAMRFactory.createCameraWrapper(withDelegate: self, and: self.viewController)
@@ -30,13 +34,13 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
+        Self.logger.error("test joel")
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
               let parameters = try? JSONDecoder().decode(OSCAMRTakePictureParameters.self, from: parametersData)
         else { return self.callback(error: .takePictureIssue) }
-print("Hello Joel")
-Logger.viewCycle.error("Error example")
+
         // This 🔨 is required in order not to break Android's implementation
         if parameters.sourceType == 0 {
             self.chooseSinglePicture(allowEdit: parameters.allowEdit)
