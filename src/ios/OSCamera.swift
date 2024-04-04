@@ -17,9 +17,7 @@ extension Logger {
 class OSCamera: CDVPlugin {
 
 
-    enum FactorialError: Error {
-        case negativeNumber
-    }
+
     var plugin: OSCAMRActionDelegate?
     var callbackId: String = ""
     private static let logger = Logger(
@@ -41,10 +39,8 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
-        let test = -1
-        if test < 0 {
-            throw FactorialError.negativeNumber
-        }
+         throw "tyuiop"
+        
      
         
         self.callbackId = command.callbackId
