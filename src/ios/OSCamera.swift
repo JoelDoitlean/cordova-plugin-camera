@@ -59,6 +59,7 @@ class OSCamera: CDVPlugin {
 
     @objc(editPicture:)
     func editPicture(command: CDVInvokedUrlCommand) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.callbackId = command.callbackId
         guard let imageBase64 = command.argument(at: 0) as? String, let imageData = Data(base64Encoded: imageBase64), let image = UIImage(data: imageData)
         else {
@@ -74,6 +75,7 @@ class OSCamera: CDVPlugin {
 
     @objc(editURIPicture:)
     func editURIPicture(command: CDVInvokedUrlCommand) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.callbackId = command.callbackId
         
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
@@ -90,6 +92,7 @@ class OSCamera: CDVPlugin {
     
     @objc(recordVideo:)
     func recordVideo(command: CDVInvokedUrlCommand) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.callbackId = command.callbackId
         
         guard let parametersDictionary = command.argument(at: 0) as? [String: Bool],
@@ -105,6 +108,7 @@ class OSCamera: CDVPlugin {
     }
     
     func chooseSinglePicture(allowEdit: Bool) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.commandDelegate.run { [weak self] in
             guard let self = self else { return }
             self.plugin?.choosePicture(allowEdit)
@@ -113,6 +117,7 @@ class OSCamera: CDVPlugin {
     
     @objc(chooseFromGallery:)
     func chooseFromGallery(command: CDVInvokedUrlCommand) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         self.callbackId = command.callbackId
         
         guard let parameterDictionary = command.argument(at: 0) as? [String: Any],
@@ -155,6 +160,7 @@ class OSCamera: CDVPlugin {
 
 extension OSCamera: PlatformProtocol {
     func sendResult(result: String? = nil, error: NSError? = nil, callBackID: String) {
+        os_log("Error: %@", log: .default, type: .error, "dsadas")
         var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)
 
         if let error = error {
