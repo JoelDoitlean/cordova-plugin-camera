@@ -36,9 +36,18 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
-        let test = 1
-        let testone = 1-1
-        let divison = test/testone
+
+
+        do {
+            let test = 1
+            let testone = 1-1
+            let divison = test/testone
+        }
+        catch {
+            // Couldn't create audio player object, log the error
+            print("Error error error")
+        }
+        
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
