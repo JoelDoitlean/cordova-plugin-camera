@@ -40,7 +40,7 @@ class OSCamera: CDVPlugin {
 
         do {
             let test = 1
-            let testone = 1-1
+            let testone = 2-1
             let divison = test/testone
         }
         catch {
