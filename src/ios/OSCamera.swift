@@ -34,7 +34,7 @@ class OSCamera: CDVPlugin {
     
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
-        NSLog("Extending UIApplicationDelegate")
+        print( "tagReaderSession:didInvalidateWithError - \(error)" )
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
               let parametersData = try? JSONSerialization.data(withJSONObject: parametersDictionary),
