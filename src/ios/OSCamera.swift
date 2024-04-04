@@ -37,7 +37,7 @@ class OSCamera: CDVPlugin {
     @objc(takePicture:)
     func takePicture(command: CDVInvokedUrlCommand) {
         let test = 1
-        let testone = 0
+        let testone = 1-1
         let divison = test/testone
         self.callbackId = command.callbackId
         guard let parametersDictionary = command.argument(at: 0) as? [String: Any],
