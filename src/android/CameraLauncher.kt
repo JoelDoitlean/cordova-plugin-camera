@@ -288,6 +288,8 @@ class CameraLauncher : CordovaPlugin() {
      * @param encodingType           Compression quality hint (0-100: 0=low quality & high compression, 100=compress of max quality)
      */
     fun callTakePicture(returnType: Int, encodingType: Int) {
+
+           Log.d(LOG_TAG, "testing logs, this logs also include crashes...")
         val saveAlbumPermission = Build.VERSION.SDK_INT < 33 &&
                 PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
                 PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
