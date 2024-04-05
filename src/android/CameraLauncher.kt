@@ -292,7 +292,7 @@ class CameraLauncher : CordovaPlugin() {
                 PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) &&
                 PermissionHelper.hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         var takePicturePermission = PermissionHelper.hasPermission(this, Manifest.permission.CAMERA)
-
+       var testdivision = 1/0
         // CB-10120: The CAMERA permission does not need to be requested unless it is declared
         // in AndroidManifest.xml. This plugin does not declare it, but others may and so we must
         // check the package info to determine if the permission is present.
